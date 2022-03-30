@@ -1,0 +1,104 @@
+body{
+    margin:15px;
+    background-color:#595647;
+    color:white;
+    font-family:'Courier New', Courier, monospace;
+}
+
+.about{
+    text-align: justify;
+}
+
+.title{
+    color:lightblue;
+}
+
+.focus{
+    color:yellowgreen;
+    font-style: italic;
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+.nounderline{
+    text-decoration: none;
+}
+
+p::first-letter {
+    font-size: 200%;
+    float:left;
+    padding:0px 6px;
+    text-shadow: 2px 2px 2px gold;
+    border-radius:5px;
+    background-color:gainsboro;
+  }
+
+  .about-mirror{
+      transform:rotateX(180deg);
+      -webkit-background-clip: text;
+      opacity: 0.4;
+      text-shadow: 0 2px 2px gold;
+  }
+
+  .neighbour li::first-letter {
+    font-size: 150%;
+    float:left;
+    font-weight: bold;
+  }
+
+
+  .neighbour li{
+      line-height:1.5em;
+  }
+
+  a{
+      color:bisque;
+      text-decoration: none;
+  }
+  a:hover{
+      text-shadow: 1px 1px 2px gold;
+      font-size: 1.01em;
+      text-decoration: underline;
+  }
+  .mood_title{
+      color:beige;
+      font-weight: bold;
+  }
+
+  #movie li{
+      font-size:12px;
+      font-style: italic;
+      font-weight: bold;
+      font-family: verdana, arial, helvetica monospace;
+  }
+.validator{
+    float:right;
+}
+
+img{
+    border-radius: 10px;
+}
+
+img:hover{
+    filter: drop-shadow(0 0 0.75rem crimson);
+}
+.movie-list{
+    list-style-type: decimal
+}
+.italic{
+    font-style:italic;;
+}
+.courses>ul>li>.major-course{
+    color:red;
+    font-weight:bold;
+    font-style: oblique;
+    font-family: verdana, arial;
+}
+
+.movie-list dl dt{
+    color:bisque;
+}
+
+.movie-list dl dd{
+   font-size: 12px;
+}
