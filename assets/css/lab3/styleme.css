@@ -1,0 +1,237 @@
+body {
+  margin: 0px;
+}
+
+a {
+  text-decoration: none;
+  color:gray;
+}
+.sub-section a{
+  font-weight: bold;
+}
+
+h3{
+    font-family:  'Julius Sans One', sans-serif;
+    font-size: 1.8em;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+/*Base layout*/
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+  font-size: larger;
+}
+
+.wrapper > * {
+  flex: 1 100%;
+}
+
+.nav {
+  background-color: rgb(247, 224, 149);
+  height: 5px;
+  order: 1;
+}
+
+.section {
+  order: 3;
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+}
+
+.section > * {
+  flex: 1 100%;
+}
+
+.sub-section {
+  order: 2;
+  flex-basis: 78%;
+}
+
+.aside {
+  order: 1;
+  flex-basis: 22%;
+  z-index: 600;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+}
+
+.sub-footer {
+    background-color: rgb(235, 225, 192);
+  order: 6;
+}
+
+.sub-footer > p {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.footer {
+  order: 7;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: rgb(75, 70, 51);
+}
+/*End of base layout*/
+/*Start of Header*/
+.header {
+  order: 2;
+  height: 310px;
+  background-image: url(../../images/lab3/header-img.jpg);
+}
+
+h1 {
+  padding-top: 0;
+  padding-bottom: 5px;
+  border-bottom: none;
+  font-family: "Julius Sans One", sans-serif;
+  font-size: 3.2em;
+  text-transform: uppercase;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+h2 {
+  margin-top: 0px;
+  display: block;
+  color: white;
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+.archive > ul {
+  list-style: none;
+  display: flex;
+  float: right;
+  margin-top: 15px;
+  margin-right: 15px;
+}
+
+.archive > ul > li:first-child,
+.archive > ul > li:last-child,
+.viewall {
+  width: 50px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  vertical-align: middle;
+  border: 1px solid white;
+  background-color: #c68b37;
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.4);
+}
+
+.archive > ul > li > a {
+  color: white;
+  font-weight: bolder;
+}
+
+.viewall {
+  width: 150px;
+}
+/*End of header layout*/
+/*Start of Side Menu*/
+.aside ul {
+  list-style: none;
+  text-align: left;
+  padding-left: 15px;
+}
+
+.aside > .design {
+  background-color: white;
+}
+.aside ul > li {
+  padding-top: 20px;
+  font-style: italic;
+  border-bottom: 1px solid gray;
+  padding-bottom: 25px;
+  margin-right: 25px;
+  margin-left: 25px;
+  font-style: normal;
+}
+.aside ul > li:last-child {
+  border-bottom: 0px;
+}
+
+.aside ul > li > .design-selection,
+.aside ul > li > .resource {
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  font-family: "Julius Sans One", sans-serif;
+  display: block;
+  color: gray;
+}
+
+.aside ul > li > .designer-name {
+  text-align: right;
+  font-size: 0.8em;
+  font-family: verdana, arial, helvetica;
+  color: gray;
+  font-style: normal;
+  opacity: 0.5;
+}
+
+.resource-heading,
+.design-heading {
+  margin-top: 0px;
+  padding: 5px;
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.4);
+  background-color: rgb(239, 240, 241);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-size: 1.2em;
+}
+
+/*End of Side Menu*/
+/*Start of the content designing*/
+.articleA,.articleB,.articleC{
+    padding:15px;
+    padding-left:20px;
+    padding-right:20px;
+    font-family: "Julius Sans One", sans-serif;
+    color:gray;
+    font-size: 0.979em;;
+}
+
+.sub-section p{
+    line-height:1.5em;
+}
+
+.articleB
+{
+    background-color:#cd853f21;
+}
+.articleC
+{
+    background-color:#d1bba814;
+}
+.requirements h3{
+    padding-top:50px;
+    margin-top:0px;
+}
+.articleA{
+    background-color: rgba(138, 120, 101, 0.13);
+}
+.html-css-file{
+    color: #a9b995;
+    background: #d9e1cd;
+}
+/*End of the content designing*/
+
+/*Sub footer*/
+.sub-footer{
+    padding:30px;
+    margin-left: 22%;
+    font-style: italic;
+    font-size: 2em;
+    line-height:1.5em;
+    color:#a9b995;
+}
+
+.sub-footer>p .name, .sub-footer>p .name-alt{
+    font-style: normal;
+}
+
