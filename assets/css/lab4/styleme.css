@@ -131,4 +131,11 @@ fieldset {
   font-size: 10px;
   padding-left: 2px;
 }
+
+.more-action>select{
+  background-color: #3d6bb3;
+  border: 0px;
+  color:white;
+}
+
 /*End of the form layout*/
