@@ -45,7 +45,7 @@ a {
 .footer {
   height: 50px;
   text-align: right;
-  padding-top:12px;
+  padding-top: 12px;
 }
 .header {
   background-color: #3d6bb3;
@@ -72,11 +72,41 @@ h5 {
   text-decoration: underline;
 }
 
-form > .form-wrapper,
-form > .form-wrapper > .left,
-form > .form-wrapper > .right {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+@media only screen and (min-width: 600px) {
+  form > .form-wrapper,
+  form > .form-wrapper > .left,
+  form > .form-wrapper > .right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  form > .form-wrapper,
+  form > .form-wrapper > .left,
+  form > .form-wrapper > .right {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .group {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .aside {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .aside {
+    display: none;
+  }
 }
 
 form > .form-wrapper > .left {
@@ -93,11 +123,6 @@ form > .form-wrapper > .right {
   grid-auto-rows: minmax(min-content, max-content);
   padding-left: 50px;
   padding-right: 20px;
-}
-
-.group {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
 }
 
 .fieldset > .group {
@@ -126,16 +151,16 @@ fieldset {
   padding-left: 0px;
 }
 
-.required{
-  color:red;
+.required {
+  color: red;
   font-size: 10px;
   padding-left: 2px;
 }
 
-.more-action>select{
+.more-action > select {
   background-color: #3d6bb3;
   border: 0px;
-  color:white;
+  color: white;
 }
 
 /*End of the form layout*/
