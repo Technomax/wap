@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../../assets/css/lab4/styleme.css" type="text/css" />
     <title>Lab4-Form</title>
 </head>
-
 <body>
     <!--By default form encType is ==application/x-www-form-urlencoded, and this does not allow the file upload
         USe entType multiple/form-data if you wish to upload the file
@@ -47,12 +46,12 @@
             <div class="form-register">
                 <h5>Register now while seats are available!</h5>
             </div>
-            <form encType="application/x-www-form-urlencoded" method="get" action="#" autocomplete="off">
+            <form encType="application/x-www-form-urlencoded" method="get" action="#" autocomplete="off" >
                 <div class="form-wrapper">
                     <div class="left">
                         <div class="group">
                             <label for="txtFirstName">First Name<span class="required">*</span></label>
-                            <input type="text" name="txtFirstName" id="txtFirstName" autocomplete="off" pattern="[a-zA-Z]+" required />
+                            <input type="text" name="txtFirstName" id="txtFirstName" autocomplete="off" pattern="[a-zA-Z]+" required/>
                         </div>
                         <div class="group">
                             <label for="txtLastName">Last Name</label>
@@ -60,11 +59,11 @@
                         </div>
                         <div class="group">
                             <label for="txtCompany">Company/Institution<span class="required">*</span></label>
-                            <input type="text" name="txtCompany" id="txtCompany" required/>
+                            <input type="text" name="txtCompany" id="txtCompany" required autocomplete="off"/>
                         </div>
                         <div class="group">
                             <label for="txtAddress">Address<span class="required">*</span></label>
-                            <textarea name="txtAddress" id="txtAddress" cols="30" rows="10" required></textarea>
+                            <textarea name="txtAddress" id="txtAddress" cols="30" rows="10" required autocomplete="off"></textarea>
                         </div>
                         <div class="group">
                             <label for="txtCity">City</label>
@@ -103,11 +102,11 @@
                         </div>
                         <div class="group">
                             <label for="txtEmail">Email<span class="required">*</span></label>
-                            <input type="text" name="txtEmail" id="txtEmail" pattern="[a-z0-9._+\-]+@[a-z0-0.\-]+\.[a-z]{2,3}" required/>
+                            <input type="text" name="txtEmail" id="txtEmail" pattern="[a-z0-9._+\-]+@[a-z0-0.\-]+\.[a-z]{2,3}" required autocomplete="off"/>
                         </div>
                         <div class="group">
                             <label for="txtPhoneNumber">Phone Number<span class="required">*</span></label>
-                            <input type="text" name="txtPhoneNumber" id="txtPhoneNumber" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" placeholder="XXX XXX XXXX" required />
+                            <input type="text" name="txtPhoneNumber" id="txtPhoneNumber" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" placeholder="XXX XXX XXXX" required  autocomplete="off"/>
                         </div>
                     </div>
                     <div class="right">
@@ -140,15 +139,15 @@
                             </div>
                             <div class="group">
                                 <label for="txtChequeNo">DD/Cheque No.</label>
-                                <input type="text" name="txtChequeNo" id="txtChequeNo">
+                                <input type="text" name="txtChequeNo" id="txtChequeNo" autocomplete="off">
                             </div>
                             <div class="group">
                                 <label for="txtBankName">Drawn On (Bank Name)</label>
-                                <input type="text" name="txtBankName" id="txtBankName">
+                                <input type="text" name="txtBankName" id="txtBankName" autocomplete="off">
                             </div>
                             <div class="group">
                                 <label for="txtPayableAt">Payable at</label>
-                                <input type="text" name="txtPayableAt" id="txtPayableAt">
+                                <input type="text" name="txtPayableAt" id="txtPayableAt" autocomplete="off">
                             </div>
                         </fieldset>
                     </div>
