@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/lab4/styleme.css" type="text/css" />
+    <title>Lab4-Form</title>
+</head>
+
+<body>
+    <!--By default form encType is ==application/x-www-form-urlencoded, and this does not allow the file upload
+        USe entType multiple/form-data if you wish to upload the file
+        In form, button by default act as a submit button if there is no explicit type
+        In radio button, if you do not give value in the post will be as cc
+        In textarea, do not put space as <textarea>   </textarea>. This is put the default space in the form output
+        In radio and check box if you want to enable selection on able click 
+                then wrap control inside label (first way)
+                use <label for=""></label> in control as <input type="checkbox" class="EA"  id="EA" name="EA" value="ea"/><label for="EA">EA</label>
+        For Auto focus of control use "for" in label as <label for="course" class="wap">Courses</label>
+    
+    For applying CSS in input control use it as element[attribute="value"] {} eg, input[type="text"]{}
+    ([ABCF][+\-]?|NC) test using https://regexr.com/
+    For Search{
+                x27 is a single quote and \x22 is a double quote
+                pattern="[^\x27\x22]+"
+     }
+    -->
+    <div class="wrapper">
+        <header class="header">
+            <h2>Work Registration</h2>
+            <ul>
+                <li class="more-action">
+                    <a href="#">More Action</a>
+                </li>
+                <li class="down-arrow">
+                    <a href="#" title="next">
+                        <span class="indicator"><img src="../../assets/images/lab4/down-arrow-icon.jpg" width="24"
+                                height="24"></span>
+                    </a>
+                </li>
+            </ul>
+        </header>
+        <aside class="aside">
+
+        </aside>
+        <section class="section">
+            <div class="form-register">
+                <h5>Register now while seats are available!</h5>
+            </div>
+            <form encType="application/x-www-form-urlencoded" method="get" action="#" autocomplete="off" validate>
+                <div class="form-wrapper">
+                    <div class="left">
+                        <div class="group">
+                            <label for="txtFirstName">First Name<span class="required">*</span></label>
+                            <input type="text" name="txtFirstName" id="txtFirstName" autocomplete="off" pattern="[a-zA-Z]+" required />
+                        </div>
+                        <div class="group">
+                            <label for="txtLastName">Last Name</label>
+                            <input type="text" name="txtLastName" id="txtLastName"  autocomplete="off" pattern="[a-zA-Z]+"/>
+                        </div>
+                        <div class="group">
+                            <label for="txtCompany">Company/Institution<span class="required">*</span></label>
+                            <input type="text" name="txtCompany" id="txtCompany" required/>
+                        </div>
+                        <div class="group">
+                            <label for="txtAddress">Address<span class="required">*</span></label>
+                            <textarea name="txtAddress" id="txtAddress" cols="30" rows="10" required></textarea>
+                        </div>
+                        <div class="group">
+                            <label for="txtCity">City</label>
+                            <input type="text" name="txtCity" id="txtCity">
+                        </div>
+                        <div class="group">
+                            <label for="ddState">State/Province/Region</label>
+                            <select name="ddState" id="ddState">
+                                <option value="">--Select---</option>
+                                <option value="">A</option>
+                                <option value="">B</option>
+                                <option value="">C</option>
+                            </select>
+                        </div>
+                        <div class="group">
+                            <label for="ddCountry">Country</label>
+                            <select name="ddCountry" id="ddCountry">
+                                <option value="">---Select---</option>
+                                <optgroup label="North America">
+                                <option value="">USA</option>
+                                <option value="">Canada</option>
+                            </optgroup>
+                            <optgroup label="Europe">
+                                <option value="">France</option>
+                                <option value="">UK</option>
+                                <option value="">Belgium</option>
+                                <option value="">Germany</option>
+                            </optgroup>
+                            <optgroup label="Asia">
+                                <option value="">Nepal</option>
+                                <option value="">Bangladesh</option>
+                                <option value="">Pakistan</option>
+                                <option value="">Bhutan</option>
+                            </optgroup>
+                            </select>
+                        </div>
+                        <div class="group">
+                            <label for="txtEmail">Email<span class="required">*</span></label>
+                            <input type="text" name="txtEmail" id="txtEmail" pattern="[a-z0-9._+\-]+@[a-z0-0.\-]+\.[a-z]{2,3}" required/>
+                        </div>
+                        <div class="group">
+                            <label for="txtPhoneNumber">Phone Number<span class="required">*</span></label>
+                            <input type="text" name="txtPhoneNumber" id="txtPhoneNumber" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" placeholder="XXX XXX XXXX" required />
+                        </div>
+                    </div>
+                    <div class="right">
+                        <fieldset class="fieldset">
+                            <div class="group">
+                                <h5>Lunch</h5>
+                            </div>
+                            <div class="group">
+                                <label for="">Mean Preference</label>
+                                <select name="" id="">
+                                    <option value="">Vegetarian</option>
+                                    <option value="">Vegan</option>
+                                    <option value="">Non-Vegetarian</option>
+                                    <option value="">Non-Vegetarian without Beef</option>
+                                </select>
+                            </div>
+                            <div class="group">
+                                <h5>Payment Details</h5>
+                            </div>
+                            <div class="group cbPaymentMode">
+                                <label for="cbPaymentMode">Payment Mode</label>
+                                <ul name="ulCbPaymentMode">
+                                    <li> <input type="checkbox" name="cbPaymentModeCash" id="cbPaymentModeCash" />Cash
+                                    </li>
+                                    <li> <input type="checkbox" name="cbPaymentModeCheque"
+                                            id="cbPaymentModeCheque" />Cheque</li>
+                                    <li> <input type="checkbox" name="cbPaymentModeDemandDraft"
+                                            id="cbPaymentModeDemandDraft" />Demand Draft</li>
+                                </ul>
+                            </div>
+                            <div class="group">
+                                <label for="txtChequeNo">DD/Cheque No.</label>
+                                <input type="text" name="txtChequeNo" id="txtChequeNo">
+                            </div>
+                            <div class="group">
+                                <label for="txtBankName">Drawn On (Bank Name)</label>
+                                <input type="text" name="txtBankName" id="txtBankName">
+                            </div>
+                            <div class="group">
+                                <label for="txtPayableAt">Payable at</label>
+                                <input type="text" name="txtPayableAt" id="txtPayableAt">
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <footer class="sub-footer">
+                    <button type="reset" class="btn reset">Reset</button>
+                    <button type="submit" class="btn submit">Submit</button>
+                </footer>
+            </form>
+        </section>
+        <footer class="footer">
+            <a target="_blank"
+                href="https://validator.w3.org/nu/?doc=https://technomax.github.io/wap/src/lab4/form.html"><img
+                    src="../../assets/images/HTML-checker.png" alt="Html Checker" width="100" height="30" /></a>
+            <a target="_blank"
+                href="http://jigsaw.w3.org/css-validator/validator?uri=https://technomax.github.io/wap/src/lab4/form.html"><img
+                    src="../../assets/images/css_checker.png" alt="CSS Checker" width="100" height="30" /></a>
+        </footer>
+    </div>
+</body>

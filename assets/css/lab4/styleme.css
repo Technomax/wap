@@ -1,0 +1,134 @@
+body {
+  margin: 0px;
+  background-color: #fafafa;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+/*Start of the outer layout*/
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.wrapper > * {
+  flex: 1 100%;
+}
+
+.aside {
+  background-color: #eceff1;
+  flex-basis: 20%;
+  min-height: calc(100vh - 100px);
+  z-index: 600;
+  box-shadow: 0px -1px 2px 0 #065881 inset, 0px 1px 1px 1px #ccc;
+}
+
+.section {
+  flex-basis: 80%;
+}
+
+.header {
+  height: 65px;
+  color: white;
+  padding-left: 20px;
+  display: flex;
+}
+
+.header > ul {
+  display: flex;
+  list-style-type: none;
+  margin-top: 28px;
+}
+
+.footer {
+  height: 50px;
+  text-align: right;
+  padding-top:12px;
+}
+.header {
+  background-color: #3d6bb3;
+}
+.footer {
+  background-color: #82b1ff;
+}
+.sub-footer {
+  background-color: #f5f5f5;
+  height: 40px;
+  margin-top: 10px;
+  padding-top: 10px;
+  text-align: center;
+}
+/*End of the outer layout*/
+
+/*Start of the form layout*/
+
+.form-register {
+  padding-left: 20px;
+}
+
+h5 {
+  text-decoration: underline;
+}
+
+form > .form-wrapper,
+form > .form-wrapper > .left,
+form > .form-wrapper > .right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+form > .form-wrapper > .left {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+form > .form-wrapper > .right {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: minmax(min-content, max-content);
+  padding-left: 50px;
+  padding-right: 20px;
+}
+
+.group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.fieldset > .group {
+  margin-top: 10px;
+}
+fieldset {
+  border-color: #fafafa;
+  opacity: 0.7;
+}
+
+.btn {
+  border: 0px;
+  color: white;
+  padding: 7px;
+  border-radius: 5px;
+  box-shadow: 0px -1px 2px 0 #065881 inset, 0px 1px 1px 1px #ccc;
+}
+.reset {
+  background-color: #4caf50;
+}
+.submit {
+  background-color: #0091ea;
+}
+.cbPaymentMode > ul {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+.required{
+  color:red;
+  font-size: 10px;
+  padding-left: 2px;
+}
+/*End of the form layout*/
