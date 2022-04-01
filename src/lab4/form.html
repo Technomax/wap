@@ -36,7 +36,7 @@
                 </li>
                 <li class="down-arrow">
                     <a href="#" title="next">
-                        <span class="indicator"><img src="../../assets/images/lab4/down-arrow-icon.jpg" width="24"
+                        <span class="indicator"><img src="../../assets/images/lab4/down-arrow-icon.jpg" alt="down" width="24"
                                 height="24"></span>
                     </a>
                 </li>
@@ -49,7 +49,7 @@
             <div class="form-register">
                 <h5>Register now while seats are available!</h5>
             </div>
-            <form encType="application/x-www-form-urlencoded" method="get" action="#" autocomplete="off" validate>
+            <form encType="application/x-www-form-urlencoded" method="get" action="#" autocomplete="off">
                 <div class="form-wrapper">
                     <div class="left">
                         <div class="group">
@@ -118,20 +118,20 @@
                                 <h5>Lunch</h5>
                             </div>
                             <div class="group">
-                                <label for="">Mean Preference</label>
-                                <select name="" id="">
-                                    <option value="">Vegetarian</option>
-                                    <option value="">Vegan</option>
-                                    <option value="">Non-Vegetarian</option>
-                                    <option value="">Non-Vegetarian without Beef</option>
+                                <label for="ddlMealPreference">Meal Preference</label>
+                                <select name="ddlMealPreference" id="ddlMealPreference">
+                                    <option value="Vegetarian">Vegetarian</option>
+                                    <option value="Vegan">Vegan</option>
+                                    <option value="NonVegetarian">Non-Vegetarian</option>
+                                    <option value="NonVegetarianLessBeef">Non-Vegetarian without Beef</option>
                                 </select>
                             </div>
                             <div class="group">
                                 <h5>Payment Details</h5>
                             </div>
                             <div class="group cbPaymentMode">
-                                <label for="cbPaymentMode">Payment Mode</label>
-                                <ul name="ulCbPaymentMode">
+                                <label>Payment Mode</label>
+                                <ul>
                                     <li> <input type="checkbox" name="cbPaymentModeCash" id="cbPaymentModeCash" />Cash
                                     </li>
                                     <li> <input type="checkbox" name="cbPaymentModeCheque"
