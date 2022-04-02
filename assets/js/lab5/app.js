@@ -2,7 +2,7 @@
 //returned result is the sum of all elements which are greater than 20.
 "use restrict";
 const numbers=[20,1,30,40,10,40,5,35];
-const sum=function(numbers){
+function sum(numbers){
    return numbers.filter(number=>number>20).reduce((accum,number)=>accum+number,0);
 }
 console.log("The sumer of all elements which are greater than 20 is:: "+sum(numbers));
@@ -24,7 +24,7 @@ const htmlString=`
 <p style="color:brown;">
 const numbers=[20,1,30,40,10,40,5,35];
 </p>
-const sum=function(numbers){
+function sum(numbers){
    return numbers.filter(number=>number>20).reduce((accum,number)=>accum+number,0);
 }
 <p style="color:blue;font-weight:bold;">
