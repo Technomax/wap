@@ -43,18 +43,15 @@ army[0]();
 //Question 2: Write a function printNumbers(from, to) that outputs a number every second, starting from from and ending with to
 </p>
 const printNumbers = function (from, to) {
-  let interval = setInterval(() => {
-    while (from <= to) {
-      console.log(from);
-      from = from + 1;
-    }
-  }, 1000);
-  setTimeout(function () {
-    clearInterval(interval);
-  }, to * 1000);
-  return;
+  while(from<=to){
+    setTimeout(function(x){
+      console.log(x);
+    },from*1000,from);
+    from++;
+  }
+return;
 };
-printNumbers(1, 3);
+printNumbers(1, 5);
 
 <p style="color:green;">
 //Question 3: In the code there's a setTimeOut call scheduled, then a heavy calculation is run, that takes more than 100ms to finish.
