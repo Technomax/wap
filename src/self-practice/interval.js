@@ -10,13 +10,13 @@
 //   ); // we're passing x
 // }
 
-const printNumbers = function (from, to) {
-    while(from<=to){
-      setTimeout(function(x){
-        console.log(x);
-      },from*1000,from);
-      from++;
-    }
-  return;
-};
-printNumbers(1, 5);
+// const printNumbers = function (from, to) {
+//     while(from<=to){
+//       setTimeout(function(x){
+//         console.log(x);
+//       },from*1000,from);
+//       from++;
+//     }
+//   return;
+// };
+// printNumbers(1, 5);
