@@ -50,12 +50,11 @@ const me = {
 };
 const log = function (height, weight,z=100) {
   // ‘this’ refers to the invoker
-
   console.log(this.getFullName() + this.height + " " + weight+" z:"+this.z);
 };
 console.log(1,2); //1 2
 console.log(1,2,200); //1 2 200
-const logMe = log.bind(me);
+const logMe = log.bind(me); //logMe is a new instance of function that is created by bind to be called later
 logMe("180cm", "70kg"); // John Smith 180cm 70kg undefined
 log.call(me, "180cm", "70kg"); // John Smith 180cm 70kg undefined
 log.apply(me, ["180cm", "70kg"]); // John Smith 180cm 70kg undefined
