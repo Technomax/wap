@@ -11,7 +11,7 @@ console.log("The sumer of all elements which are greater than 20 is:: "+sum(numb
 // Array, return a new array which contains all string, length is greater than and equal to 5, and
 // contains letter ‘a’.
 const strings=["Anil","Sachin","Ashish","Shree","Sayal","Siddhant"];
-const getNewArray=function(strings){
+const getNewArray=(strings)=>{
     return strings.filter(item=>item.length>5 && item.includes('a'));
 }
 console.log(getNewArray(strings));

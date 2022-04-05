@@ -19,7 +19,7 @@ console.log("The sumer of all elements which are greater than 20 is:: "+sum(numb
 <p style="color:brown;">
 const strings=["Anil","Sachin","Ashish","Shree","Sayal","Siddhant"];
 </p>
-const getNewArray=function(strings){
+const getNewArray=(strings)=>{
     return strings.filter(item=>item.length>5 && item.includes('a'));
 }
 <p style="color:blue;font-weight:bold;">
