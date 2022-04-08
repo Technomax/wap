@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+    <style>
+        div {
+            border: 1px solid black;
+        }
+        
+        #a{height:350px;}
+        .floaty{
+           float:right;
+           width:100px;
+           height:100px;
+        }
+        #d{
+            position:absolute;
+            bottom:0px;
+            left:0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="a">A
+        <div class="floaty">B</div>
+        <div id="c" class="floaty">C
+               <div id="d">D</div>
+        </div>
+    </div>
+</body>
+</html>

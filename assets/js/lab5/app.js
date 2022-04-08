@@ -7,6 +7,9 @@ function sum(numbers){
 }
 console.log("The sumer of all elements which are greater than 20 is:: "+sum(numbers));
 
+const sum2=(arr)=>arr.filter(x=>x>20).reduce((previous,current,index,array)=>previous+current,0);
+
+console.log(sum2(numbers));
 // Create a function using function expression named getNewArray with one parameter of String
 // Array, return a new array which contains all string, length is greater than and equal to 5, and
 // contains letter ‘a’.
