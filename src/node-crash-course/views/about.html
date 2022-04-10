@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+    <style>
+        body {
+            background-color: yellow;
+            color: magenta;
+        }
+        p {
+            color: orange;
+        }
+        
+        .central, .itemclass{
+            color: green;
+        }
+        
+        #itemId {
+            color: red;
+        }
+        
+        .itemclass>.spanclass{
+            color: gray;
+        }
+        
+        #itemId>span {
+            color: blue;
+        }
+        
+        #item {
+            background-color: cyan;
+        }
+    </style>
+</head>
+
+<body>
+
+    <body>
+        <p>First piece of text; what color am I?</p>
+        <div class="central">
+            <p>Second piece of text; what color am I?</p>
+            <ul>
+                <li id="item">Third piece of text; what color am I?</li>
+                <li id='itemId' class="itemclass">Third piece of <span class="spanclass">text</span>; what color am I?</li>
+            </ul>
+        </div>
+    </body>
+
+</body>
+
+</html>
