@@ -40,4 +40,10 @@ if (fs.existsSync("./data/file.txt")) {
 // npm install -g nodemon
 // node init //for json package creation
 // modules.export={}
-//npm install --save lodash
+// npm install --save lodash
+// npm install express
+// npm install ejs
+//morgan third party logger middleware logging
+//npm install morgan
+//npm install mongoose
+//for mongo db do not add special character in the password
