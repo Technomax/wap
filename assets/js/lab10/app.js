@@ -1,26 +1,10 @@
-console.log('Foo: Start', new Date().toLocaleTimeString());
-
-setTimeout(() => {
-  console.log(
-    'Poo: To be called in 5 seconds ',
-    new Date().toLocaleTimeString()
-  );
-}, 5000);
-
-const waitlogForNseconds = seconds => {
-  const startTime = new Date().getTime();
-  const milliseconds = 1000;
-  const endTime = startTime + seconds * milliseconds;
-  let currTime = new Date().getTime();
-  while (endTime > currTime) {
-    currTime = new Date().getTime();
-  }
-  console.log(
-    `Goo: To be called after ${seconds} End `,
-    new Date().toLocaleTimeString()
-  );
+Array.prototype.even = function () {
+  return this.filter((x) => x % 2 === 0);
 };
 
-waitlogForNseconds(4);
+Array.prototype.odd = function () {
+  return this.filter((x) => x % 2 !== 0);
+};
 
-console.log('Bar: ', new Date().toLocaleTimeString());
+console.log(`Even output: ${[1,2,3,4,5,6,7,8].even()}`);
+console.log(`Odd output: ${[1,2,3,4,5,6,7,8].odd()}`);

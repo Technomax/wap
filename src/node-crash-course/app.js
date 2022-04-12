@@ -1,7 +1,8 @@
 const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-const Blog=require("./models/blog");
+const { render } = require("ejs");
+const blogRoutes=require("./routes/blogRoutes");
 
 //express application
 const app = express();
@@ -29,6 +30,8 @@ app.set("view engine", "ejs");
 //to access give it links as "/app.css" not "/assets/app.css"
 app.use(express.static("assets"));
 
+//converts incoming body stream to body option. Without this we cannot use req.body
+app.use(express.urlencoded({ extended: true }));
 // by default express after app.use does not know what to do next. So, next is put to instruct it to move ahead
 // app.use((req,res,next) => {
 //   console.log("New request made:");
@@ -40,46 +43,67 @@ app.use(express.static("assets"));
 //morgan for logging
 app.use(morgan("dev"));
 
-//mongoose and mongo sandbox routes 
-app.get('/add-blog',(req,res)=>{
-  const blog=new Blog({
-    title:'new blog',
-    snippet:'about my new blog',
-    body:'more about my new blog'
-  });
-  blog.save()
-  .then((result)=>{
-    res.send(result)
-  })
-  .catch((err)=>{
-    console.log(err);
-  });
-});
+//mongoose and mongo sandbox routes
+// app.get("/add-blog", (req, res) => {
+//   const blog = new Blog({
+//     title: "Science blog",
+//     snippet: "about my science blog",
+//     body: "more about my science blog",
+//   });
+//   blog
+//     .save()
+//     .then((result) => {
+//       res.send(result);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// });
 
+// app.get("/all-blogs", (req, res) => {
+//   Blog.find()
+//     .then((result) => {
+//       res.send(result);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// });
+
+// app.get("/single-blog", (req, res) => {
+//   Blog.findById('625431906244c557d204412f')
+//     .then((result) => {
+//       res.send(result);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// });
 
 app.get("/", (req, res) => {
-  const blogs = [
-    {
-      title: "Yoshi finds eggs",
-      snippet: "Lorum ipsum dolar sit amet consectuture",
-    },
-    {
-      title: "Mario finds stars",
-      snippet: "Lorum ipsum dolar sit amet consectuture",
-    },
-    {
-      title: "How to defeat browser",
-      snippet: "Lorum ipsum dolar sit amet consectuture",
-    },
-  ];
-  res.render("index", { title: "Home", blogs });
+  // const blogs = [
+  //   {
+  //     title: "Yoshi finds eggs",
+  //     snippet: "Lorum ipsum dolar sit amet consectuture",
+  //   },
+  //   {
+  //     title: "Mario finds stars",
+  //     snippet: "Lorum ipsum dolar sit amet consectuture",
+  //   },
+  //   {
+  //     title: "How to defeat browser",
+  //     snippet: "Lorum ipsum dolar sit amet consectuture",
+  //   },
+  // ];
+  // res.render("index", { title: "Home", blogs });
+  res.redirect("/blogs");
 });
 app.get("/about", (req, res) => {
   res.render("about", { title: "about" });
 });
-app.get("/blogs/create", (req, res) => {
-  res.render("create", { title: "Create a new Blog" });
-});
+
+//route
+app.use('/blogs',blogRoutes); //this applies to only when we go to /blogs
 
 app.use((req, res) => {
   res.status(404).render("404", { title: "404" });
