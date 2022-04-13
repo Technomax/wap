@@ -28,10 +28,12 @@ app.use('/error',(req,res,next)=>{
   throw new Error("Exception caught");
 });
 
-app.use((req, res, next) => {
-  res.status(400).sendFile(path.join(__dirname,"views","400.html"));
-});
-
 app.use((err, req, res, next) => {
   res.status(500).sendFile(path.join(__dirname,"views","500.html"));
 });
+
+app.use((req, res, next) => {
+  res.status(400).sendFile(path.join(__dirname,"views","404.html"));
+});
+
+
