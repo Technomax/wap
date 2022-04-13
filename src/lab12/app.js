@@ -29,9 +29,9 @@ app.use('/error',(req,res,next)=>{
 });
 
 app.use((req, res, next) => {
-  res.status(404).send("Page not found");
+  res.status(400).sendFile(path.join(__dirname,"views","400.html"));
 });
 
 app.use((err, req, res, next) => {
-  res.status(500).send("Error detected..." + err.message);
+  res.status(500).sendFile(path.join(__dirname,"views","500.html"));
 });
