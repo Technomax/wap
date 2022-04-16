@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <Script>
+        window.onload = function () {
+            const submit = document.getElementById('btn');
+            submit.addEventListener('click',swap);
+            function swap() {
+                const input1=document.getElementById('txt1');
+                const input2=document.getElementById('txt2');
+                let temp = input1.value;
+                input1.value = input2.value;
+                input2.value=temp;
+            }
+        } 
+    </Script>   
+</head>
+
+<body>
+    <input id="txt1" type="num1">
+    <input id="txt2" type="num2">
+    <button id="btn">SWAP</button>
+</body>
+
+</html>

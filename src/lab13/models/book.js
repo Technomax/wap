@@ -1,9 +1,33 @@
 //model book.js
 let books = [
-  {id:1, title:'Oracle', isbn:'122-11-2222', publishedDate:'2-12-2022', author:'Press'},
-  {id:2, title:'Algorithm', isbn:'123-11-2222', publishedDate:'2-12-2022', author:'Wrox'},
-  {id:3, title:'C#', isbn:'124-11-2222', publishedDate:'2-12-2022', author:'Pearson'},
-  {id:4, title:'Java', isbn:'125-11-2222', publishedDate:'2-12-2022', author:'Press'},
+  {
+    id: 1,
+    title: "Oracle",
+    isbn: "122-11-2222",
+    publishedDate: "2-12-2022",
+    author: "Press",
+  },
+  {
+    id: 2,
+    title: "Algorithm",
+    isbn: "123-11-2222",
+    publishedDate: "2-12-2022",
+    author: "Wrox",
+  },
+  {
+    id: 3,
+    title: "C#",
+    isbn: "124-11-2222",
+    publishedDate: "2-12-2022",
+    author: "Pearson",
+  },
+  {
+    id: 4,
+    title: "Java",
+    isbn: "125-11-2222",
+    publishedDate: "2-12-2022",
+    author: "Press",
+  },
 ];
 class Book {
   constructor(id, title, isbn, publishedDate, author) {
@@ -14,7 +38,7 @@ class Book {
     this.author = author;
   }
   save() {
-    this.id = Math.floor((Math.random() * 100000)).toString();
+    this.id = Math.floor(Math.random() * 100000).toString();
     books.push(this);
     return this;
   }
@@ -39,16 +63,12 @@ class Book {
     }
   }
   static deleteById(id) {
-    try {
-      const index = books.findIndex((x) => x.id == id);
-      if (index >= 0) {
-        books=books.filter(x=>x.id!=this.id);
-        return books;
-      } else {
-        throw new Error("Record Not Found.");
-      }
-    } catch (err) {
-      throw new Error(err.message);
+    const index = books.findIndex((x) => x.id == id);
+    if (index >= 0) {
+      books = books.filter((x) => x.id != this.id);
+      return books;
+    } else {
+      throw new Error("Record Not Found.");
     }
   }
 }

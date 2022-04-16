@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        let promise=new Promise(function(resolve,reject){
+            const number=Math.random();
+            console.log(number);
+            if(number>0.5){
+                resolve("done");
+            }
+            else {
+                reject(new Error("Invalid number"));
+            }
+                ///codes over in this block are synchronous
+               //however, resolve and reject in function are async callback function
+               //reject and resolve once executed then the promise is done
+        });
+
+        promise.then(val=>console.log(val))
+        .catch(err=>console.log(err))
+        .finally(()=>console.log("Inside Finally"))
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        window.onload = function () {
+            document.getElementById('btn').onclick = function () {
+                let value1 = parseFloat(document.getElementById('txt1').value);
+                let value2 = parseFloat(document.getElementById('txt2').value);
+                let operator = document.getElementById('select').value;
+                switch (operator) {
+                    case "add":
+                        {
+                            let result = value1 + value2;
+                            document.getElementById('result').innerHTML = result;
+                            break;
+                        }
+                    case "sub":
+                        {
+                            let result = value1 - value2;
+                            document.getElementById('result').innerHTML = result;
+                            break;
+                        }
+                    case "mul":
+                        {
+                            let result = value1 * value2;
+                            document.getElementById('result').innerHTML = result;
+                            break;
+                        }
+                    case "div":
+                        {
+                            let result = value2 == 0 ? 0 : value1 / value2;
+                            document.getElementById('result').innerHTML = result;
+                            break;
+                        }
+                }
+            }
+        }
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <input type="text" id="txt1">
+        <select id="select">
+            <option value="add" selected>addition</option>
+            <option value="sub" selected>substraction</option>
+            <option value="mul" selected>multiplication</option>
+            <option value="div" selected>division</option>
+        </select>
+        <input type="text" id="txt2">
+        <button id="btn">Calculate</button>
+    </div>
+    <div id="result">
+
+    </div>
+
+</body>
+
+</html>
