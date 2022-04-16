@@ -65,7 +65,7 @@ class Book {
   static deleteById(id) {
     const index = books.findIndex((x) => x.id == id);
     if (index >= 0) {
-      books = books.filter((x) => x.id != this.id);
+      books = books.filter((x) => x.id != id);
       return books;
     } else {
       throw new Error("Record Not Found.");
