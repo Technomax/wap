@@ -5,15 +5,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/app.js" defer></script>
+    <link rel="stylesheet" href="./assets/css/app.css" type="text/css">
     <title>Document</title>
 </head>
 
 <body>
-    <input type="text" id="txt1">
-    <button id="getAll">Get All</button>
-    <button id="getById">Get</button>
-    <button id="update">Update</button>
+    <div class="wrapper">
+        <nav>
+            <button id="getAll">Show All Records</button>
+            <button id="addNew">Add New Record</button>
+        </nav>
+
+        <section>
+            <article id="result">
+                <table>
+                    <caption>Book List</caption>
+                    <thead>
+                        <tr>
+                            <th>Book Id</th>
+                            <th>Book title</th>
+                            <th>Author Id</th>
+                            <th>Author First Name</th>
+                            <th>Author Last Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                    </tbody>
+                </table>
+            </article>
+            <article>
+                <fieldset>
+                    <legend>Book Form</legend>
+                    <form action="/books" encType="application/x-www-form-urlencoded" method="post" class="form" id="bookForm">
+                        <input type="hidden" value="" id="txt-bookId">
+                        <div class="form-field-group">
+                            <label for="lblTitle">Title</label>
+                            <input type="text" id="txt-title" required>
+                            <span class="error" aria-live="polite"></span>
+                        </div>
+                        <div class="form-field-group">
+                            <label for="lblAuthorId">Author Id</label>
+                            <input type="number" id="txt-authorId" required>
+                            <span class="error" aria-live="polite"></span>
+                        </div>
+                        <div class="form-field-group">
+                            <label for="lblFirstName">First Name</label>
+                            <input type="text" id="txt-firstname" required>
+                            <span class="error" aria-live="polite"></span>
+                        </div>
+                        <div class="form-field-group">
+                            <label for="lblLastName">LastName</label>
+                            <input type="text" id="txt-lastname" required>
+                            <span class="error" aria-live="polite"></span>
+                        </div>
+                        <button id="btnFormUpdate" class="btn" style="display:none;">Update</button>
+                        <button id="btnFormAdd" class="btn" type="submit">Add</button>
+                        <button id="btnReset" class="btn" type="reset">Reset</button>
+                    </form>
+                </fieldset>
+            </article>
+        </section>
+    </div>
 </body>
 
 </html>

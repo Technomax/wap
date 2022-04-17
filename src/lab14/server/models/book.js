@@ -40,9 +40,15 @@ class Book {
   }
 
   save() {
-    counter++;
-    this.bookId = counter;
-    books.push(this);
+    console.log(this.bookId);
+    const index = books.findIndex((book) => book.bookId == this.bookId);
+    if (index >= 0) {
+      books.splice(index, 1, this);
+    } else {
+      counter++;
+      this.bookId = counter;
+      books.push(this);
+    }
   }
 
   update() {

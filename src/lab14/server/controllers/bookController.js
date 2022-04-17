@@ -2,8 +2,6 @@ const express = require("express");
 const Book = require("../models/book");
 
 const gets = (req, res, next) => {
-  //const query=new URLSearchParams(req.query).get('firstName');
-  //req.query.firstName
   const query=req.query.firstName;
   if(query==null)
   {
@@ -20,7 +18,7 @@ const getById = (req, res, next) => {
 
 const create = (req, res, next) => {
   const book = new Book(
-    Book.getKey(),
+    req.body.bookId==0?Book.getKey():req.body.bookId,
     req.body.title,
     req.body.isbn,
     req.body.publishedDate,

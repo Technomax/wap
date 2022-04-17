@@ -1,0 +1,76 @@
+.body{
+    margin:0px;
+}
+.wrapper{
+    width:1000px;
+    margin:0px auto;
+    display:flex;
+    flex-flow:row wrap;
+}
+.wrapper>*{
+    flex: 1 100%;
+}
+
+nav{
+    width:100%;
+    height:50px;
+    display:flex;
+    float:right;
+    background-color:rgb(124, 124, 207);
+    justify-content: right;
+    margin-bottom: 5px;
+}
+#getAll, #addNew{
+    margin:5px;
+}
+
+table{
+ width:100%;
+ border:1px solid black;
+ margin-bottom: 20px;
+ border-spacing:0px;
+ padding:5px;
+}
+
+table>caption{
+    font-style: bolder;
+    font-size: larger;
+    padding:5px;
+    background-color:beige;
+    border:1px solid rgb(241, 241, 152);
+    
+}
+
+table>thead>tr>th{
+    border-bottom: 1px solid rgb(216, 216, 55);
+    padding:5px;
+}
+
+table th{
+    text-align: left;
+    font-size:16px;
+}
+
+table td{
+    text-align: left;
+    border-bottom: 1px solid rgb(125, 124, 121);
+    padding:0px;
+    margin:0px;
+    padding:5px;
+    font-size:14px;
+}
+
+
+.form-field-group {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 5px;
+  }
+
+  .btn {
+    border: 0px;
+    margin-top:10px;
+    padding: 7px;
+    border-radius: 5px;
+    box-shadow: 0px -1px 2px 0 #065881 inset, 0px 1px 1px 1px #ccc;
+  }
