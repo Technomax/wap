@@ -13,6 +13,31 @@
   src: url(../fonts/Amboeng.otf);
 }
 
+nav{
+  display:flex;
+  margin-top:20px;
+  margin-bottom:20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.search-div{
+  height:30px;
+  display: flex;
+  margin-right:auto;
+}
+
+.login-div{
+  height:30px;
+  display: flex;
+  float:right;
+}
+
+.fa-search, .fa-sign-in{
+  background-color: #3bc8e7;
+  height:30px;
+  width:30px;
+}
+
 .wrapper {
   background-color: #2c233e;
   display: flex;
@@ -42,6 +67,10 @@ header {
 }
 .header-right {
   margin-right: 20px;
+}
+
+footer{
+  padding-left:20px;
 }
 
 .header-right > blockquote,
@@ -104,7 +133,7 @@ header {
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (min-width: 800px) {
   body {
     margin: 0px;
     background-color: #2f273e;
@@ -262,4 +291,8 @@ table td{
     margin:0px;
     padding:5px;
     font-size:14px;
+}
+
+.queue, .dequeue{
+  cursor: pointer;
 }

@@ -1,4 +1,6 @@
 window.onload = function () {
+
+  
   loadData();
 
   document.getElementById("bookForm").addEventListener("submit", function (e) {

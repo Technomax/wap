@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- http://kamleshyadav.com/html/miraculous/html/Bootstrap5/version1/index.html -->
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,23 +9,30 @@
     <link href="./assets/css/audio.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="./assets/js/audio.js" defer></script>
+    <script type="text/javascript" src="./assets/js/app.js" defer></script>
     <title>Music Site</title>
 </head>
-
 <body>
     <div class="wrapper">
         <nav>
-            nav bar
+           <div class="search-div">
+               <input type="text" placeholder="Search music">
+               <button class="fa fa-search"></button>
+           </div>
+           <div class="login-div">
+            <input type="text" placeholder="user name">
+            <input type="text" placeholder="password">
+            <button class="fa fa-sign-in"></button>
+        </div>
         </nav>
         <header>
             <div class="header-left"></div>
             <div class="header-right"><span>
                     <h1>Welcome to music world!</h1>
                 </span>
-                <blockquote><q>If Music is a Place — then Jazz is the City, Folk is the Wilderness, Rock is the Road,
-                        Classical is a Temple.</q>
+                <blockquote><q>Life is like a beautiful melody, only the lyrics are messed up.</q>
                 </blockquote>
-                <span>-- Vera Nazarin</span>
+                <span>-- Hans</span>
             </div>
         </header>
         <section>
@@ -81,54 +86,78 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Id</th>
+                            <th style="width:25px;">Id</th>
                             <th>Song Title</th>
-                            <th>Genre</th>
-                            <th>Artist</th>
-                            <th>Song Release Date</th>
-                            <th>Action</th>
+                            <th style="width:100px;">Genre</th>
+                            <th style="width:200px;">Artist</th>
+                            <th style="width:100px;">Release Date</th>
+                            <th style="width:50px;"></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="songListTable">
                         <tr>
-                            <td>Id</td>
-                            <td>Song Title</td>
+                            <td>1</td>
+                            <td>"https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3"</td>
                             <td>Genre</td>
                             <td>Artist</td>
-                            <td>Song Release Date</td>
-                            <td>Action</td>
+                            <td>04-Jun-2020 00:53</td>
+                            <td style="text-align:center;"><span><i tag="1" class="fa fa-plus queue"></i></span></td>
                         </tr>
                         <tr>
-                            <td>Id</td>
-                            <td>Song Title</td>
+                            <td>2</td>
+                            <td>"https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/FaceBangSonic.mp3"</td>
                             <td>Genre</td>
                             <td>Artist</td>
-                            <td>Song Release Date</td>
-                            <td>Action</td>
+                            <td>04-Jun-2020 00:53</td>
+                            <td style="text-align:center;"><span><i tag="2" class="fa fa-plus queue"></i></span></td>
                         </tr>
                         <tr>
-                            <td>Id</td>
-                            <td>Song Title</td>
+                            <td>3</td>
+                            <td>"https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/BloodCity.mp3"</td>
                             <td>Genre</td>
                             <td>Artist</td>
-                            <td>Song Release Date</td>
-                            <td>Action</td>
+                            <td>04-Jun-2020 00:53</td>
+                            <td style="text-align:center;"><span><i tag="3" class="fa fa-plus queue"></i></span></td>
                         </tr>
                         <tr>
-                            <td>Id</td>
-                            <td>Song Title</td>
+                            <td>4</td>
+                            <td>"https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/HowLovely.mp3"</td>
                             <td>Genre</td>
                             <td>Artist</td>
-                            <td>Song Release Date</td>
-                            <td>Action</td>
+                            <td>04-Jun-2020 00:53</td>
+                            <td style="text-align:center;"><span><i tag="4" class="fa fa-plus queue"></i></span></td>
                         </tr>
                         <tr>
-                            <td>Id</td>
-                            <td>Song Title</td>
+                            <td>5</td>
+                            <td>"https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/Unbeaten.mp3"</td>
                             <td>Genre</td>
                             <td>Artist</td>
-                            <td>Song Release Date</td>
-                            <td>Action</td>
+                            <td>04-Jun-2020 00:53</td>
+                            <td style="text-align:center;"><span><i tag="5" class="fa fa-plus queue"></i></span></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>"https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/remember%20the%20old%20days.mp3"</td>
+                            <td>Genre</td>
+                            <td>Artist</td>
+                            <td>04-Jun-2020 00:53</td>
+                            <td style="text-align:center;"><span><i tag="6" class="fa fa-plus queue"></i></span></td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>"https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/YouthRevolver.mp3"</td>
+                            <td>Genre</td>
+                            <td>Artist</td>
+                            <td>04-Jun-2020 00:53</td>
+                            <td style="text-align:center;"><span><i tag="7" class="fa fa-plus queue"></i></span></td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>"https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/WonderfulLights.mp3"</td>
+                            <td>Genre</td>
+                            <td>Artist</td>
+                            <td>04-Jun-2020 00:53</td>
+                            <td style="text-align:center;"><span><i tag="8" class="fa fa-plus queue"></i></span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -141,71 +170,98 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Id</th>
+                            <th style="width:25px;">Id</th>
                             <th>Song Title</th>
-                            <th>Genre</th>
-                            <th>Artist</th>
-                            <th>Song Release Date</th>
-                            <th>Action</th>
+                            <th style="width:100px;">Genre</th>
+                            <th style="width:200px;">Artist</th>
+                            <th style="width:100px;">Release Date</th>
+                            <th style="width:50px;"></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="playlistTable">
                         <tr>
-                            <td>Id</td>
+                            <td>1</td>
                             <td>Song Title</td>
                             <td>Genre</td>
                             <td>Artist</td>
                             <td>Song Release Date</td>
-                            <td>Action</td>
+                            <td style="text-align:center;"><span><i tag="1" class="fa fa-minus dequeue"></i></span> | <span><i class="fa fa-play"></i></span></td>
                         </tr>
                         <tr>
-                            <td>Id</td>
+                            <td>2</td>
                             <td>Song Title</td>
                             <td>Genre</td>
                             <td>Artist</td>
                             <td>Song Release Date</td>
-                            <td>Action</td>
+                            <td style="text-align:center;"><span><i tag="2" class="fa fa-minus dequeue"></i></span> | <span><i class="fa fa-play"></i></span></td>
                         </tr>
                         <tr>
-                            <td>Id</td>
+                            <td>3</td>
                             <td>Song Title</td>
                             <td>Genre</td>
                             <td>Artist</td>
                             <td>Song Release Date</td>
-                            <td>Action</td>
+                            <td style="text-align:center;"><span><i tag="3" class="fa fa-minus dequeue"></i></span> | <span><i class="fa fa-play"></i></span></td>
                         </tr>
                         <tr>
-                            <td>Id</td>
+                            <td>4</td>
                             <td>Song Title</td>
                             <td>Genre</td>
                             <td>Artist</td>
                             <td>Song Release Date</td>
-                            <td>Action</td>
+                            <td style="text-align:center;"><span><i tag="4" class="fa fa-minus dequeue"></i></span> | <span><i class="fa fa-play"></i></span></td>
                         </tr>
                         <tr>
-                            <td>Id</td>
+                            <td>5</td>
                             <td>Song Title</td>
                             <td>Genre</td>
                             <td>Artist</td>
                             <td>Song Release Date</td>
-                            <td>Action</td>
+                            <td style="text-align:center;"><span><i tag="5" class="fa fa-minus dequeue"></i></span> | <span><i class="fa fa-play"></i></span></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </section>
-        <footer>
-
-            <div id="audio-player-container">
-                <button id="play-icon" class="audio-btn fa fa-play fa-2x"></button>
-                <button id="forward-icon" class="audio-btn fa fa-forward fa-2x"></button>
-                <button id="backward-icon" class="audio-btn fa fa-backward fa-2x"></button>
-                <button id="shuffle-icon" class="audio-btn fa fa-random fa-2x"></button>
-                <button id="stop-icon" class="audio-btn fa fa-stop fa-2x"></button>
-                <audio controls autoplay>
-                    <!-- <source src="horse.ogg" type="audio/ogg">
-                    <source src="horse.mp3" type="audio/mpeg"> -->
-                </audio>
+        <footer id="footerSegment">
+            <div class="audio-player">
+                <div id="timeline" class="timeline">
+                    <div class="progress"></div>
+                </div>
+                <div class="controls">
+                    <div class="play-container">
+                        <div class="backward">
+                            <button id="backward-icon" class="audio-btn fa fa-step-backward fa-2x"></button>
+                        </div>
+                        <div class="toggle-play play">
+                            <button id="play-icon" class="audio-btn fa fa-play fa-2x"></button>
+                        </div>
+                        <div class="stop">
+                            <button id="stop-icon" class="audio-btn fa fa-stop fa-2x"></button>
+                        </div>
+                        <div class="forward">
+                            <button id="forward-icon" class="audio-btn fa fa-step-forward fa-2x"></button>
+                        </div>
+                    </div>
+                    <div class="name">Music Song</div>
+                    <div class="time">
+                        <div class="current">0:00</div>
+                        <div class="divider">/</div>
+                        <div class="length">0:00</div>
+                    </div>
+                    <div class="shuffle">
+                        <button id="shuffle-icon" class="audio-btn fa fa-random fa-2x"></button>
+                    </div>
+                    <div class="volume-container">
+                        <div class="volume-button">
+                            <div class="audio-btn volume fa fa-volume-up fa-2x"></div>
+                        </div>
+                        <div id="volume-slider" class="volume-slider">
+                            <div id="volume-percentage" class="volume-percentage"></div>
+                        </div>
+                    </div>
+                  
+                </div>
             </div>
         </footer>
     </div>
