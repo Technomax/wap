@@ -1,17 +1,21 @@
 const audioPlayer = document.querySelector(".audio-player");
 var song_track = [
-  "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3",
-  "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/FaceBangSonic.mp3",
-  "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/BloodCity.mp3",
-  "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/HowLovely.mp3",
-  "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/Unbeaten.mp3",
-  "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/remember%20the%20old%20days.mp3",
-  "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/YouthRevolver.mp3",
-  "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/WonderfulLights.mp3",
+  {
+    title: "Back Sound",
+    url: "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3",
+  },
+  {
+    title: "Back Sound",
+    url: "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/FaceBangSonic.mp3",
+  },
+  {
+    title: "Back Sound",
+    url: "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/BloodCity.mp3",
+  },
 ];
 
 let current_song_track = 0;
-let audio = new Audio(song_track[current_song_track]);
+let audio = new Audio(song_track[current_song_track].url);
 let shuffleState = "random";
 
 //create the const of all the audio button
@@ -25,7 +29,11 @@ const forwardBtn = document.getElementById("forward-icon");
 const backwardBtn = document.getElementById("backward-icon");
 let totalDuration = 0;
 
-audio.addEventListener("loadeddata",() => {
+audio.addEventListener(
+  "loadeddata",
+  () => {
+    document.getElementById("song-title").innerHTML =
+      song_track[current_song_track].title;
     audioPlayer.querySelector(".time .length").textContent = getTimeCodeFromNum(
       audio.duration
     );
@@ -134,17 +142,38 @@ setInterval(() => {
   audioPlayer.querySelector(".time .current").textContent = getTimeCodeFromNum(
     audio.currentTime
   );
+
+  if ((audio.currentTime / audio.duration) * 100 == 100) {
+    playNextSong();
+  }
 }, 500);
+
+//select next track based on the shuffle condition
+//retweet means going via entire list in circular
+//repeat means playing song again and again 
+function playNextSong() {
+  if (shuffleState == "random") {
+     current_song_track = Math.round(Math.random() * song_track.length - 1);
+     if(current_song_track<0){
+      current_song_track=0;
+     }
+  } else if (shuffleState == "retweet") {
+    if (current_song_track == song_track.length - 1) {
+      current_song_track = 0;
+    } else {
+      current_song_track += 1;
+    }
+  }
+  else {
+    current_song_track=current_song_track;
+  }
+  audio.src = song_track[current_song_track].url;
+  audio.play();
+}
 
 //change track on clicking forward button
 forwardBtn.addEventListener("click", () => {
-  if (current_song_track == song_track.length - 1) {
-    current_song_track = 0;
-  } else {
-    current_song_track += 1;
-  }
-  audio.src = song_track[current_song_track];
-  audio.play();
+  playNextSong();
 });
 
 //change track on clicking backward button
@@ -154,7 +183,7 @@ backwardBtn.addEventListener("click", () => {
   } else {
     current_song_track -= 1;
   }
-  audio.src = song_track[current_song_track];
+  audio.src = song_track[current_song_track].url;
   audio.play();
 });
 
