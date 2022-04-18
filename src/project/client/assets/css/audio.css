@@ -1,0 +1,14 @@
+button {
+    padding: 0;
+    border: 0;
+    background: inherit;
+    cursor: pointer;
+    outline: none;
+    width: 40px;
+    height: 40px;
+    color:white;
+  }
+
+  .audio-btn {
+    margin: 20px;
+  }

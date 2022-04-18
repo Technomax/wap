@@ -1,0 +1,265 @@
+@font-face {
+  font-family: header-font;
+  src: url(../fonts/ChopinScript.ttf);
+}
+
+@font-face {
+  font-family: quote-font;
+  src: url(../fonts/Awesome\ Quote.ttf);
+}
+
+@font-face {
+  font-family: author-font;
+  src: url(../fonts/Amboeng.otf);
+}
+
+.wrapper {
+  background-color: #2c233e;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100vh;
+  width: inherit;
+}
+
+.wrapper > * {
+  flex: 1 100%;
+}
+
+section {
+  width: inherit;
+}
+
+header {
+  height: 254px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.header-left {
+  background-image: url("../img/banner.png");
+  background-repeat: no-repeat;
+  height: inherit;
+}
+.header-right {
+  margin-right: 20px;
+}
+
+.header-right > blockquote,
+.header-right > span:last-child {
+  float: right;
+}
+
+.header-right > blockquote {
+  font-family: "quote-font";
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.header-right > span:last-child {
+  font-family: "author-font";
+  font-size: 2.5em;
+}
+
+.header-right > span:first-child > h1 {
+  float: left;
+  font-family: "header-font";
+  font-size: 2.2em;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+@media only screen and (min-width: 1200px) {
+  body {
+    margin: 0px;
+    background-color: #2f273e;
+    color: white;
+    font-size: larger;
+    font-family: "Open Sans", proxima-nova-regular, Brandon, serif;
+    margin: 0 auto;
+    width: 75vw;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  body {
+    margin: 0px;
+    background-color: #2f273e;
+    color: white;
+    font-size: larger;
+    font-family: "Open Sans", proxima-nova-regular, Brandon, serif;
+    margin: 0 auto;
+    width: 75vw;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  body {
+    margin: 0px;
+    background-color: #2f273e;
+    color: white;
+    font-size: larger;
+    font-family: "Open Sans", proxima-nova-regular, Brandon, serif;
+    margin: 0 auto;
+    width: 85vw;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  body {
+    margin: 0px;
+    background-color: #2f273e;
+    color: white;
+    font-size: larger;
+    font-family: "Open Sans", proxima-nova-regular, Brandon, serif;
+    margin: 0 auto;
+    width: 90vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    margin: 0px;
+    background-color: #2f273e;
+    color: white;
+    font-size: larger;
+    font-family: "Open Sans", proxima-nova-regular, Brandon, serif;
+    margin: 0 auto;
+    width: 95vw;
+  }
+}
+@media only screen and (max-width: 599px) {
+  body {
+    margin: 0px;
+    background-color: #2f273e;
+    color: white;
+    font-size: larger;
+    font-family: "Open Sans", proxima-nova-regular, Brandon, serif;
+    margin: 0 auto;
+    width: 99vw;
+  }
+
+  header {
+    height: 254px;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+.section-heading {
+  width: 100%;
+  margin-bottom: 30px;
+  display: inline-block;
+  margin-top: 20px;
+  color: #3bc8e7;
+}
+
+.section-heading > span:first-child {
+  position: relative;
+  display: inline-block;
+  font-size: 1.1em;
+  padding-left: 20px;
+  padding-bottom: 5px;
+}
+
+.section-heading > span:first-child::after {
+  width: 100px;
+  height: 5px;
+  content: "";
+  position: absolute !important;
+  bottom: 0;
+  left: -10px;
+  z-index: 0;
+  padding-left: 20px;
+  background: -webkit-radial-gradient(
+    50% 50%,
+    ellipse closest-side,
+    #3bc8e7,
+    rgba(255, 42, 112, 0) 60%
+  );
+}
+
+.section-heading > span:last-child {
+  position: relative;
+  float: right;
+  margin-right: 20px;
+  font-size: 0.8em;
+  padding-bottom: 5px;
+}
+
+.album-list > ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.album-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  overflow-x: scroll;
+  width: inherit;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #3bc8e7;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #3bc8e7;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  background: #c3c8c9;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+table {
+  width: 100%;
+  padding-left:20px;
+  margin-top:20px;
+}
+
+table > thead {
+  text-align: left;
+}
+
+table > tbody {
+    color:white;
+    font-weight: normal;
+    font-size: 0.8em;
+  }
+  
+  table>thead>tr>th{
+    border-bottom: 1px solid rgb(216, 216, 55);
+    padding:5px;
+}
+
+table th{
+    text-align: left;
+    font-size:16px;
+}
+
+table td{
+    text-align: left;
+    border-bottom: 1px solid rgb(125, 124, 121);
+    padding:0px;
+    margin:0px;
+    padding:5px;
+    font-size:14px;
+}
