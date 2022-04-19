@@ -33,6 +33,7 @@ const backwardBtn = document.getElementById("backward-icon");
 let totalDuration = 0;
 
 function loadSongsInPlayer(data) {
+  song_track = [];
   data.forEach((x) =>
     song_track.push({
       songId: x.songId,
@@ -144,11 +145,14 @@ volumeSlider.addEventListener(
 timeline.addEventListener(
   "click",
   (e) => {
-    const timelineWidth = window.getComputedStyle(timeline).width;
-    const timeToSeek = (e.offsetX / parseInt(timelineWidth)) * audio.duration;
-    audio.currentTime = timeToSeek;
-  },
-  false
+    try {
+      const timelineWidth = window.getComputedStyle(timeline).width;
+      const timeToSeek = (e.offsetX / parseInt(timelineWidth)) * audio.duration;
+      audio.currentTime = timeToSeek;
+    } catch (Error) {
+      return false;
+    }
+  }
 );
 
 setInterval(() => {
@@ -204,8 +208,33 @@ backwardBtn.addEventListener("click", () => {
 
 //stop the playing
 stopBtn.addEventListener("click", () => {
+  stopPlayback();
+});
+
+//stop audio playback
+function stopPlayback() {
   audio.pause();
   audio.currentTime = 0;
   playBtn.classList.remove("fa-pause");
   playBtn.classList.add("fa-play");
-});
+}
+
+function removeFromCurrentPlayer(songId) {
+  fetch("http://localhost:3000/songs/" + songId, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      if (res.url == audio.src) {
+        stopPlayback();
+        audio.currentTime = 0;
+        audioPlayer.querySelector(".progress").style.width=0;
+        audio.src = "";
+      }
+      song_track = song_track.filter((x) => x.songId != songId);
+      console.log(song_track);
+    });
+}

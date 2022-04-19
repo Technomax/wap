@@ -3,7 +3,9 @@ let sessionUserId = 0;
 init();
 
 function init() {
-  if (sessionUserId != '0') {
+  // Get saved data from sessionStorage
+  sessionUserId = sessionStorage.getItem("sessionId");
+  if (sessionUserId != "0" && sessionUserId != null) {
     document.getElementById("login-panel").style.display = "none";
     document.getElementById("logout").style.display = "block";
     document.getElementById("search-div").style.display = "flex";
@@ -21,6 +23,13 @@ function init() {
     document.getElementById("repo-section").style.display = "none";
   }
 }
+
+document.getElementById("logout").addEventListener("click", (event) => {
+  // Remove saved data from sessionStorage
+  sessionStorage.removeItem("sessionId");
+  stopPlayback();
+  init();
+});
 
 document.getElementById("login-panel").addEventListener("submit", function (e) {
   e.preventDefault();
@@ -40,8 +49,10 @@ document.getElementById("login-panel").addEventListener("submit", function (e) {
         alert(res.Error);
       } else {
         alert("login successful");
-        sessionUserId=res.sessionNumber;
-       init();
+        sessionUserId = res.sessionNumber;
+        // Save data to sessionStorage
+        sessionStorage.setItem("sessionId", sessionUserId);
+        init();
       }
     })
     .catch((err) => {
@@ -49,7 +60,7 @@ document.getElementById("login-panel").addEventListener("submit", function (e) {
     });
 });
 
-document.getElementById("login").addEventListener("click", (e) => {});
+
 function dateToYMD(date) {
   var strArray = [
     "Jan",
@@ -161,6 +172,8 @@ const dequeue = function (songId) {
   })
     .then((res) => res.json())
     .then((res) => {
+      //remove from the current playing if the removed song is the current playing song
+      removeFromCurrentPlayer(songId);
       fetchByLoginId();
     });
 };
