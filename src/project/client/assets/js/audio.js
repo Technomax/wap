@@ -72,7 +72,13 @@ playBtn.addEventListener("click", () => {
   if (song_track.length == 0) {
     return;
   }
-  if (song_track.length > 0 && audio.src == "") {
+  if(current_song_track<0 && song_track.length > 0){
+    current_song_track=0;
+    audio.src = song_track[current_song_track].url;
+    document.getElementById("song-title").innerHTML =
+      song_track[current_song_track].title;
+  }
+  else if (song_track.length > 0 && audio.src == "") {
     audio.src = song_track[current_song_track].url;
     document.getElementById("song-title").innerHTML =
       song_track[current_song_track].title;
@@ -231,7 +237,12 @@ function removeFromCurrentPlayer(songId) {
       if (res.url == audio.src) {
         stopPlayback();
         audio.currentTime = 0;
+        document.getElementById("song-title").innerHTML = "-";
         audioPlayer.querySelector(".progress").style.width=0;
+        audioPlayer.querySelector(".time .length").textContent = getTimeCodeFromNum(
+          0
+        );
+        current_song_track=-1;
         audio.src = "";
       }
       song_track = song_track.filter((x) => x.songId != songId);
