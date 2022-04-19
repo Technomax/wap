@@ -3,7 +3,6 @@ const cors=require('cors');
 const songRouter=require("./routers/songRouter");
 const userRouter=require("./routers/userRouter");
 
-
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -11,8 +10,6 @@ app.use(express.json());
 app.listen(3000, () => {
   console.log("Server is up and listen at port:3000");
 });
-
-
 
 app.use('/songs',songRouter);
 app.use('/users',userRouter);

@@ -15,7 +15,8 @@ const create = (req, res, next) => {
     req.body.firstname,
     req.body.lastname,
     req.body.loginId,
-    req.body.password
+    req.body.password,
+    ""
   );
   user.save();
   return res.status(201).json(user);
@@ -27,7 +28,8 @@ const update = (req, res, next) => {
     req.body.firstname,
     req.body.lastname,
     req.body.loginId,
-    req.body.password
+    req.body.password,
+    ""
   );
   user.update();
   return res.status(200).json(user);
@@ -38,11 +40,11 @@ const remove = (req, res, next) => {
 };
 
 const enqueueSong=(req,res,next)=>{
-  return res.status(200).json(User.enqueueSong(req.body.userId, req.body.songId));
+  return res.status(200).json(User.enqueueSong(req.body.sessionId, req.body.songId));
 };
 
 const dequeueSong=(req,res,next)=>{
-  return res.status(200).json(User.dequeueSong(req.body.userId, req.body.songId));
+  return res.status(200).json(User.dequeueSong(req.body.sessionId, req.body.songId));
 };
 
 module.exports = { gets, getAuthenticate, enqueueSong,dequeueSong, create, update, remove };

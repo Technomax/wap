@@ -160,13 +160,13 @@ class Song {
     }
   }
 
-  static getByTitle(song) {
+  static getByTitle(title) {
     const index = songs.findIndex((song) =>
-    song.title.toUpperCase().includes(song.toUpperCase())
+    song.title.toUpperCase().includes(title.toUpperCase())
     );
     if (index >= 0) {
       return songs.filter((song) =>
-        song.title.toUpperCase().includes(song.toUpperCase())
+        song.title.toUpperCase().includes(title.toUpperCase())
       );
     } else {
       throw new Error("Record not found.");

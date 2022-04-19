@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,22 +9,30 @@
     <link href="./assets/css/app.css" type="text/css" rel="stylesheet">
     <link href="./assets/css/audio.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script type="text/javascript" src="./assets/js/audio.js" defer></script>
     <script type="text/javascript" src="./assets/js/app.js" defer></script>
+    <script type="text/javascript" src="./assets/js/audio.js" defer></script>
     <title>Music Site</title>
 </head>
+
 <body>
     <div class="wrapper">
         <nav>
-           <div class="search-div">
-               <input type="text" placeholder="Search music">
-               <button class="fa fa-search"></button>
-           </div>
-           <div class="login-div">
-            <input type="text" placeholder="user name">
-            <input type="text" placeholder="password">
-            <button class="fa fa-sign-in"></button>
-        </div>
+            <div class="logo-div" id="logo">
+                <img src="./assets/img/logo.png" alt="logo">
+            </div>
+            <div class="login-div">
+                <div id="search-div">
+                    <input type="text" id="txtSearch" placeholder="Search music">
+                    <button class="fa fa-search" id="btnSearch"></button>
+                    <button class="fa fa-sign-out" id="logout"></button>
+                </div>
+                <form action="/users/authenticate" encType="application/x-www-form-urlencoded" method="post"
+                    class="form" id="login-panel">
+                    <input type="text" id="txtUserName" placeholder="user name" required>
+                    <input type="text" id="txtPassword" placeholder="password" required>
+                    <button type="submit" class="fa fa-sign-in" id="login"></button>
+                </form>
+            </div>
         </nav>
         <header>
             <div class="header-left"></div>
@@ -79,7 +88,7 @@
                 </ul>
             </div>
         </section>
-        <section class="main-section">
+        <section class="main-section" id="repo-section">
             <div class="section-heading">
                 <span>Song List</span>
                 <span></span>
@@ -95,75 +104,20 @@
                         </tr>
                     </thead>
                     <tbody id="songListTable">
-                        <tr>
-                            <td>1</td>
-                            <td>"https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3"</td>
-                            <td>Genre</td>
-                            <td>Artist</td>
-                            <td>04-Jun-2020 00:53</td>
-                            <td style="text-align:center;"><span><i tag="1" class="fa fa-plus queue"></i></span></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>"https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/FaceBangSonic.mp3"</td>
-                            <td>Genre</td>
-                            <td>Artist</td>
-                            <td>04-Jun-2020 00:53</td>
-                            <td style="text-align:center;"><span><i tag="2" class="fa fa-plus queue"></i></span></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>"https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/BloodCity.mp3"</td>
-                            <td>Genre</td>
-                            <td>Artist</td>
-                            <td>04-Jun-2020 00:53</td>
-                            <td style="text-align:center;"><span><i tag="3" class="fa fa-plus queue"></i></span></td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>"https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/HowLovely.mp3"</td>
-                            <td>Genre</td>
-                            <td>Artist</td>
-                            <td>04-Jun-2020 00:53</td>
-                            <td style="text-align:center;"><span><i tag="4" class="fa fa-plus queue"></i></span></td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>"https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/Unbeaten.mp3"</td>
-                            <td>Genre</td>
-                            <td>Artist</td>
-                            <td>04-Jun-2020 00:53</td>
-                            <td style="text-align:center;"><span><i tag="5" class="fa fa-plus queue"></i></span></td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>"https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/remember%20the%20old%20days.mp3"</td>
-                            <td>Genre</td>
-                            <td>Artist</td>
-                            <td>04-Jun-2020 00:53</td>
-                            <td style="text-align:center;"><span><i tag="6" class="fa fa-plus queue"></i></span></td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>"https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/YouthRevolver.mp3"</td>
-                            <td>Genre</td>
-                            <td>Artist</td>
-                            <td>04-Jun-2020 00:53</td>
-                            <td style="text-align:center;"><span><i tag="7" class="fa fa-plus queue"></i></span></td>
-                        </tr>
-                        <tr>
+                        <!-- <tr>
                             <td>8</td>
-                            <td>"https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/WonderfulLights.mp3"</td>
+                            <td>"https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/WonderfulLights.mp3"
+                            </td>
                             <td>Genre</td>
                             <td>Artist</td>
                             <td>04-Jun-2020 00:53</td>
                             <td style="text-align:center;"><span><i tag="8" class="fa fa-plus queue"></i></span></td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
         </section>
-        <section class="main-section">
+        <section class="main-section" id="main-section">
             <div class="section-heading">
                 <span>My Play List</span>
                 <span></span>
@@ -179,46 +133,15 @@
                         </tr>
                     </thead>
                     <tbody id="playlistTable">
-                        <tr>
-                            <td>1</td>
-                            <td>Song Title</td>
-                            <td>Genre</td>
-                            <td>Artist</td>
-                            <td>Song Release Date</td>
-                            <td style="text-align:center;"><span><i tag="1" class="fa fa-minus dequeue"></i></span> | <span><i class="fa fa-play"></i></span></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Song Title</td>
-                            <td>Genre</td>
-                            <td>Artist</td>
-                            <td>Song Release Date</td>
-                            <td style="text-align:center;"><span><i tag="2" class="fa fa-minus dequeue"></i></span> | <span><i class="fa fa-play"></i></span></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Song Title</td>
-                            <td>Genre</td>
-                            <td>Artist</td>
-                            <td>Song Release Date</td>
-                            <td style="text-align:center;"><span><i tag="3" class="fa fa-minus dequeue"></i></span> | <span><i class="fa fa-play"></i></span></td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Song Title</td>
-                            <td>Genre</td>
-                            <td>Artist</td>
-                            <td>Song Release Date</td>
-                            <td style="text-align:center;"><span><i tag="4" class="fa fa-minus dequeue"></i></span> | <span><i class="fa fa-play"></i></span></td>
-                        </tr>
-                        <tr>
+                        <!-- <tr>
                             <td>5</td>
                             <td>Song Title</td>
                             <td>Genre</td>
                             <td>Artist</td>
                             <td>Song Release Date</td>
-                            <td style="text-align:center;"><span><i tag="5" class="fa fa-minus dequeue"></i></span> | <span><i class="fa fa-play"></i></span></td>
-                        </tr>
+                            <td style="text-align:center;"><span><i tag="5" class="fa fa-minus dequeue"></i></span> |
+                                <span><i tag="5" class="fa fa-play play-from-list"></i></span></td>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
@@ -243,7 +166,7 @@
                             <button id="forward-icon" class="audio-btn fa fa-step-forward fa-2x"></button>
                         </div>
                     </div>
-                    <div id="song-title">Music Song</div>
+                    <div id="song-title">-</div>
                     <div class="time">
                         <div class="current">0:00</div>
                         <div class="divider">/</div>
@@ -260,7 +183,7 @@
                             <div id="volume-percentage" class="volume-percentage"></div>
                         </div>
                     </div>
-                  
+
                 </div>
             </div>
         </footer>

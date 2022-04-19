@@ -5,7 +5,8 @@ let users = [
     lastname: "Maharjan",
     loginId: "Anil",
     password: "1234",
-    songs: [{ songId: 1 }, { songId: 2 }, { songId: 3 }],
+    sessionId:"",
+    songs: [{ songId: 4 }, { songId: 2 }, { songId: 3 }],
   },
   {
     userId: 2,
@@ -13,6 +14,7 @@ let users = [
     lastname: "Ghimire",
     loginId: "Ashish",
     password: "1234",
+    sessionId:"",
     songs: [{ songId: 1 }, { songId: 2 }, { songId: 3 }, { songId: 4 }],
   },
   {
@@ -21,6 +23,7 @@ let users = [
     lastname: "Tandon",
     loginId: "Sachin",
     password: "1234",
+    sessionId:"",
     songs: [{ songId: 4 }, { songId: 5 }],
   },
   {
@@ -29,6 +32,7 @@ let users = [
     lastname: "Adhikari",
     loginId: "Sayal",
     password: "1234",
+    sessionId:"",
     songs: [{ songId: 7 }],
   },
   {
@@ -37,6 +41,7 @@ let users = [
     lastname: "Pangeni",
     loginId: "Siddhant",
     password: "1234",
+    sessionId:"",
     songs: [{ songId: 1 }, { songId: 8 }, { songId: 3 }],
   },
 ];
@@ -44,11 +49,12 @@ let users = [
 let counter = 5;
 
 class User {
-  constructor(firstname, lastname, loginId, password) {
+  constructor(firstname, lastname, loginId, password,sessionId) {
     this.firstname = firstname;
     this.lastname = lastname;
     this.loginId = loginId;
     this.password = password;
+    this.sessionId=sessionId;
   }
 
   save() {
@@ -84,6 +90,10 @@ class User {
     return users.find(x=>x.userId==userId);
   }
 
+  static getBySessionId(sessionId) {
+    return users.find(x=>x.sessionId==sessionId);
+  }
+
   static remove(id) {
     const index = users.findIndex((user) => user.userId == id);
     if (index >= 0) {
@@ -102,18 +112,23 @@ class User {
     );
 
     if (index >= 0) {
-      return users.filter(
-        (user) =>
+      const user= users.find(
+        user =>
           user.loginId.toUpperCase() == loginId.toUpperCase() &&
           user.password.toUpperCase() == password.toUpperCase()
       );
+      const sessionId=user.loginId+"-"+Math.floor(Date.now() + Math.random());
+      const index=users.findIndex(x=>x.userId==user.userId);
+      user.sessionId=sessionId;
+      users.splice(index,1,user);
+      return {sessionNumber: sessionId };
     } else {
       throw new Error("Failed to authenticate.");
     }
   }
 
-  static enqueueSong(userId, songId) {
-    const user = users.find((user) => user.userId == userId);
+  static enqueueSong(sessionId, songId) {
+    const user = users.find((user) => user.sessionId == sessionId);
     if (user == null || user == undefined) {
       throw new Error("User not found.");
     } else {
@@ -125,8 +140,8 @@ class User {
     }
   }
 
-  static dequeueSong(userId, songId) {
-    const user = users.find((user) => user.userId == userId);
+  static dequeueSong(sessionId, songId) {
+    const user = users.find((user) => user.sessionId == sessionId);
     if (user == null || user == undefined) {
       throw new Error("User not found.");
     } else {

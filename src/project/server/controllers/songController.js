@@ -18,7 +18,7 @@ const getById = (req, res, next) => {
 };
 
 const getsByUser = (req, res, next) => {
-  const user=User.getById(req.params.userId);
+  const user=User.getBySessionId(req.params.userId);
   return res.status(200).json(Song.getsByUser(user));
 };
 

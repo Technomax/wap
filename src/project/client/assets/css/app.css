@@ -23,6 +23,11 @@ nav{
 .search-div{
   height:30px;
   display: flex;
+}
+
+.logo-div{
+  height:30px;
+  display: flex;
   margin-right:auto;
 }
 
@@ -34,6 +39,12 @@ nav{
 
 .fa-search, .fa-sign-in{
   background-color: #3bc8e7;
+  height:30px;
+  width:30px;
+}
+
+.fa-sign-out{
+  background-color: rgb(216, 216, 55);
   height:30px;
   width:30px;
 }
@@ -293,6 +304,10 @@ table td{
     font-size:14px;
 }
 
-.queue, .dequeue{
+.queue, .dequeue, .play-from-list{
   cursor: pointer;
+}
+
+#login-panel{
+  display: flex;
 }

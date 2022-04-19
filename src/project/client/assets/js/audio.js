@@ -1,21 +1,24 @@
 const audioPlayer = document.querySelector(".audio-player");
 var song_track = [
-  {
-    title: "Back Sound",
-    url: "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3",
-  },
-  {
-    title: "Back Sound",
-    url: "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/FaceBangSonic.mp3",
-  },
-  {
-    title: "Back Sound",
-    url: "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/BloodCity.mp3",
-  },
+  // {
+  //   songId: 1,
+  //   title: "Back Sound",
+  //   url: "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3",
+  // },
+  // {
+  //   songId: 2,
+  //   title: "Face Bang Sonic",
+  //   url: "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/FaceBangSonic.mp3",
+  // },
+  // {
+  //   songId: 3,
+  //   title: "Blood City",
+  //   url: "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/BloodCity.mp3",
+  // },
 ];
 
 let current_song_track = 0;
-let audio = new Audio(song_track[current_song_track].url);
+let audio = new Audio();
 let shuffleState = "random";
 
 //create the const of all the audio button
@@ -28,6 +31,27 @@ const timeline = audioPlayer.querySelector(".timeline");
 const forwardBtn = document.getElementById("forward-icon");
 const backwardBtn = document.getElementById("backward-icon");
 let totalDuration = 0;
+
+function loadSongsInPlayer(data) {
+  data.forEach((x) =>
+    song_track.push({
+      songId: x.songId,
+      title: x.title,
+      url: x.url,
+    })
+  );
+}
+
+const startPlayingFromHere = function (songId) {
+  current_song_track = song_track.findIndex((x) => x.songId == songId);
+  audio.src = song_track[current_song_track].url;
+  document.getElementById("song-title").innerHTML =
+    song_track[current_song_track].title;
+  audio.play();
+  audio.currentTime = 0;
+  playBtn.classList.add("fa-pause");
+  playBtn.classList.remove("fa-play");
+};
 
 audio.addEventListener(
   "loadeddata",
@@ -42,33 +66,26 @@ audio.addEventListener(
   false
 );
 
-// function getAudioDurationFromArray() {
-//   totalDuration=0;
-//   song_track.forEach((x) => {
-//     let tempAudio = new Audio(x);
-//     tempAudio.addEventListener("loadeddata", () => {
-//       totalDuration+=tempAudio.duration;
-//       audioPlayer.querySelector(".time .length").textContent = getTimeCodeFromNum(totalDuration);
-//     });
-//   });
-// }
-
 //toggle between playing and pausing on button click
-playBtn.addEventListener(
-  "click",
-  () => {
-    if (audio.paused) {
-      playBtn.classList.remove("fa-play");
-      playBtn.classList.add("fa-pause");
-      audio.play();
-    } else {
-      playBtn.classList.remove("fa-pause");
-      playBtn.classList.add("fa-play");
-      audio.pause();
-    }
-  },
-  false
-);
+playBtn.addEventListener("click", () => {
+  if (song_track.length == 0) {
+    return;
+  }
+  if (song_track.length > 0 && audio.src == "") {
+    audio.src = song_track[current_song_track].url;
+    document.getElementById("song-title").innerHTML =
+      song_track[current_song_track].title;
+  }
+  if (audio.paused) {
+    playBtn.classList.remove("fa-play");
+    playBtn.classList.add("fa-pause");
+    audio.play();
+  } else {
+    playBtn.classList.remove("fa-pause");
+    playBtn.classList.add("fa-play");
+    audio.pause();
+  }
+});
 
 //toggle between volume
 document.querySelector(".volume-button").addEventListener("click", () => {
@@ -134,15 +151,12 @@ timeline.addEventListener(
   false
 );
 
-//check audio percentage and update time accordingly
 setInterval(() => {
   const progressBar = audioPlayer.querySelector(".progress");
-  console.log((audio.currentTime / audio.duration) * 100 + "%");
   progressBar.style.width = (audio.currentTime / audio.duration) * 100 + "%";
   audioPlayer.querySelector(".time .current").textContent = getTimeCodeFromNum(
     audio.currentTime
   );
-
   if ((audio.currentTime / audio.duration) * 100 == 100) {
     playNextSong();
   }
@@ -150,24 +164,25 @@ setInterval(() => {
 
 //select next track based on the shuffle condition
 //retweet means going via entire list in circular
-//repeat means playing song again and again 
+//repeat means playing song again and again
 function playNextSong() {
   if (shuffleState == "random") {
-     current_song_track = Math.round(Math.random() * song_track.length - 1);
-     if(current_song_track<0){
-      current_song_track=0;
-     }
+    current_song_track = Math.round(Math.random() * song_track.length - 1);
+    if (current_song_track < 0) {
+      current_song_track = 0;
+    }
   } else if (shuffleState == "retweet") {
     if (current_song_track == song_track.length - 1) {
       current_song_track = 0;
     } else {
       current_song_track += 1;
     }
-  }
-  else {
-    current_song_track=current_song_track;
+  } else {
+    current_song_track = current_song_track;
   }
   audio.src = song_track[current_song_track].url;
+  document.getElementById("song-title").innerHTML =
+    song_track[current_song_track].title;
   audio.play();
 }
 
